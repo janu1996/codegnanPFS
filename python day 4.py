@@ -90,8 +90,11 @@ print(any_)
 -----------------------------------------
 5.insert()
 --> we can insert where we want the particular item
-syntax:-
+syntax:- variable_name.insert(index,element)
 eg:-
+any_ = [1,2,45,78,23,90]
+any_.insert(3,12)
+print(any_)
 -----------
 6.sort()
 sorts permently
