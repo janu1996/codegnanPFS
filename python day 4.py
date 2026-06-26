@@ -89,7 +89,7 @@ any_.remove(1)
 print(any_)
 -----------------------------------------
 5.insert()
--->we can insert item  where we want  at the particular index
+--> we can insert item  where we want  at the particular index
 syntax:- variable_name.insert(index,element)
 eg:-
 any_ = [1,2,45,78,23,90]
@@ -135,4 +135,6 @@ Task:- 1)write 2 examples for each method --> count,index,insert
 2)[56,[1,2],['python','java',['python is a language',153,90],[78,6],'I know c']] just find know using indexing and 153 also seperatly
 -----------------------
 '''
+
+
 
