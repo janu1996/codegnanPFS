@@ -89,7 +89,7 @@ any_.remove(1)
 print(any_)
 -----------------------------------------
 5.insert()
---> we can insert where we want the particular item
+-->we can insert item  where we want  at the particular index
 syntax:- variable_name.insert(index,element)
 eg:-
 any_ = [1,2,45,78,23,90]
