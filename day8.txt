@@ -1,0 +1,71 @@
+statements
+-->3 types
+conditional ----> if,if-else,elief,nested if(in inside if)
+control---> break,continue,pass
+loop---> for,while
+ first oka if condition raste ventane daniki else raseyali so that it will be easy and not miss any else
+ isted of that use pass like
+ if num % 2 == 0:
+ pass (here we will write code or other if)
+ else:
+ print("odd number")
+1.conditional statements
+if
+--> used to check a condition true or not
+eg:-
+num=10
+if num % 2 ==0:
+    print(f"{num} is a even number")
+eg2:-
+num=9
+if num % 2 ==0:
+    print(f"{num} is a even number")
+it will not show any output besacuse the condition  is failed the it goes to else statement
+and insead of space use tab it gives correct indentation
+
+if-else
+--> else is a fall back statement  in case the if condition is false then this else will be executed
+eg:-
+num=9
+if num % 2 ==0:
+    print(f"{num} is a even number")
+else:
+    print (f"{num} is a odd number")
+
+example of if-else:
+
+teja_ICIC_details = {"ATM PIN":'6600'}
+pin_ = input("Enter your 4 digit ATM PIN:")
+if pin_ in teja_ICIC_details['ATM PIN']:#if 1234  in 6600 :false
+    print("Welcome to ICIC ATM")
+else:
+    print("You have entered incorrect pin")
+
+nested if
+-->if inside if
+--->if inside the another if is called nested if
+eg:-
+teja_ICIC_details = {"ATM PIN":'6600'}
+pin_ = input("Enter your 4 digit ATM PIN:")
+if len(pin_) ==4:
+    
+    if pin_ in teja_ICIC_details['ATM PIN']:
+        print("Welcome to ICIC ATM")
+    else:
+        print("You have entered incorrect pin")
+else:
+    print("pls entered only 4 digit pin")
+
+
+elif
+---> allows to check condition multiple times(for multiple if conditions only one else)
+eg:-
+marks_ = int(input("Enter your marks: "))
+if marks_ is >= 90:
+    print("A+")
+elif marks_ >= 80:
+    print("A")
+elif marks_ > 70:
+    print("B+")
+else:
+    print("Failed")
