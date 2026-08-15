@@ -76,3 +76,35 @@ The project uses a common `Person` base class and derives different university r
 `Worker` → Worker information
 
 The project creates multiple objects for each category and displays their information and total counts.
+# Car Sales Data Analysis Project
+
+A Python-based **Car Sales Data Analysis Project** developed using Pandas and Matplotlib to organize, analyze, and visualize car sales data.
+
+## Features
+
+* Created a car sales dataset
+* Stored data in a Pandas DataFrame
+* Displayed first and last 5 records
+* Analyzed DataFrame information and statistics
+* Exported data to CSV
+* Read data from CSV
+* Visualized top 10 car sales using a bar chart
+* Identified highest and lowest sales
+* Calculated average sales
+* Sorted cars based on sales
+* Exported sorted data to CSV
+
+## Technologies Used
+
+* Python
+* Pandas
+* Matplotlib
+* CSV
+
+## Files Generated
+
+* `cars_sales.csv`
+* `sorted_car_sales.csv`
+
+This project helped me practice **data handling, CSV operations, statistical analysis, sorting, and data visualization using Python**.
+
