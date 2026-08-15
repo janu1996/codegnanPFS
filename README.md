@@ -23,3 +23,56 @@ A simple ATM application developed using Python and Object-Oriented Programming 
 - Lists
 - User Input
 - Basic Exception/Validation Logic
+# University Management System – Python OOP
+
+A Python-based **University Management System** developed to practice and demonstrate Object-Oriented Programming concepts using a real-world university scenario.
+
+## Features
+
+* Student management
+* Faculty management
+* Bus Driver management
+* Non-Teaching Staff management
+* Worker management
+* Display individual details
+* Student, Faculty, Driver, Staff, and Worker ID handling
+* Count total members in each category
+* University policy functionality
+
+## OOP Concepts Used
+
+* Classes and Objects
+* Constructors
+* Inheritance
+* Method Overriding
+* Encapsulation
+* Class Attributes
+* Instance Attributes
+* Class Methods
+* Static Methods
+* `super()` function
+* Private Attributes
+* Polymorphism
+
+The project uses a common `Person` base class and derives different university roles from it, making the application a practical example of applying OOP concepts to a real-world system.
+
+## Technologies
+
+* Python
+* Object-Oriented Programming
+
+## Project Structure
+
+`Person` → Base Class
+
+`Student` → Student information and student count
+
+`Faculty` → Faculty information and university policy
+
+`Driver` → Driver and bus information
+
+`Staff` → Non-teaching staff information
+
+`Worker` → Worker information
+
+The project creates multiple objects for each category and displays their information and total counts.
