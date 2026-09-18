@@ -1,0 +1,72 @@
+backtracking --->always consistis recursion
+
+
+Searches
+
+1.linear search--->capable only for small data.
+
+2. binary search--->only works for sorted arrays.
+
+code for linear search
+
+def linear_search(arr, target):
+    for i in range(len(arr)):
+        if arr[i] == target:
+            return i
+
+arr = [25, 44, 17, 12, 58, 41, 36, 98]
+target = 12
+
+result = linear_search(arr, target)
+print("Target found at index:", result)
+
+
+2. 
+
+def linear_search(arr, target):
+    indexes = []
+
+    for i in range(len(arr)):
+        if arr[i] == target:
+            indexes.append(i)
+
+    return indexes
+
+
+arr = [12, 32,12,32,12,32,12,32]
+target = 12
+
+result = linear_search(arr, target)
+print("Target found at indexes:", result)
+
+3.
+def linear_search(arr, target):
+    indexes = []
+
+    for i in range(len(arr)):
+        if arr[i] == target:
+            indexes.append(i)
+
+    return indexes
+
+
+arr = ['n', 'a', 'v', 'e', 'e', 'n', 'k', 'u', 'm', 'a', 'r']
+target = 'a'
+
+result = linear_search(arr, target)
+
+print("Target found at indexes:", result)
+
+binary search 
+algorithm:
+step-1 : initilalize left and right
+left = 0 
+right=n-1
+
+step-2: find middle
+middle = left+right/2
+
+step-3:if target ==mid: return target
+step-4: if target>arr[mid] move -->right--->left =mid+1
+step-5: if target<arr[mid] move-->left-->right=mid-1
+

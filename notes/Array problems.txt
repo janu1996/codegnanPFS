@@ -1,0 +1,493 @@
+Array problems
+
+1-->second largest element
+arr=[8,3,15,2,10,12] find second largest element
+arr.sort()
+print(arr[-2])-->log N
+first,second
+first=0
+second=0
+current=8
+
+code:
+
+arr = [8, 3, 15, 2, 10, 12]
+
+first = 0
+second = 0
+
+for current in arr:
+    if current > first:
+        second = first
+        first = current
+    elif current > second and current != first:
+        second = current
+
+print("Second largest element:", second)
+
+
+
+problem-2
+rotate array
+arr=[1,2,3,4,5]
+rotate left by 2 positions
+output=[3,4,5,1,2]
+
+
+code using sclicing (optimized)
+
+arr = [1, 2, 3, 4, 5]
+k = 2
+
+arr = arr[k:] + arr[:k]
+
+print(arr)
+
+
+first swapping: 2 3 4 5 1
+second swapping: 3 4 5 1 2
+1. take the first element
+2.shift the element to one  position
+put the first at end
+3. repeat it k times.
+
+
+code (brute force)
+
+def left_rotate(arr, k):
+    n = len(arr)
+
+    for _ in range(k):
+        first = arr[0]
+
+        for i in range(n - 1):
+            arr[i] = arr[i + 1]
+
+        arr[n - 1] = first
+
+    return arr
+
+
+arr = [1, 2, 3, 4, 5]
+k = 2
+
+print(left_rotate(arr, k))
+
+
+code sir told:
+
+def rotate_array(arr, k):
+    n = len(arr)
+
+    if n == 0:
+        return arr
+
+    k = k % n
+
+    for _ in range(k):
+        first = arr[0]
+
+        for i in range(n - 1):
+            arr[i] = arr[i + 1]
+
+        arr[n - 1] = first
+
+    return arr
+
+
+arr = [1, 2, 3, 4, 5]
+k = 2
+
+result = rotate_array(arr, k)
+
+print(result)
+
+
+using slicing (sir told):
+
+def rotate_array(arr, k):
+    n = len(arr)
+
+    if n == 0:
+        return arr
+
+    k = k % n
+
+    return arr[k:] + arr[:k]
+
+
+arr = [1, 2, 3, 4, 5]
+k = 2
+
+result = rotate_array(arr, k)
+
+print(result)
+-------------------------------------
+problem3: (Capgemini question)
+left rotation using index mapping
+formula is:
+
+new index =(old_index - k +n)%n
+
+arr = [1 2 3 4 5]
+k=2  i-0 1 2 3 4
+element 1->currently at 0 position
+old_index = 0
+(0-2+5)%5
+3%5
+1--->index 3
+2--->index 4
+3--->index 0
+4--->index 1
+5--->index 2
+
+code:
+def rotate_array(arr, k):
+    n = len(arr)
+
+    if n == 0:
+        return arr
+
+    k = k % n
+
+    result = [0] * n
+
+    for old_index in range(n):
+        new_index = (old_index - k + n) % n
+        result[new_index] = arr[old_index]
+
+    return result
+
+
+arr = [1, 2, 3, 4, 5]
+k = 2
+
+print(rotate_array(arr, k))
+----------------------------------
+right rotation
+
+arr=[1 2 3 4 5]
+o/p = [4 5 1 2 3]
+k=2
+
+code:
+right rotation
+arr = [1 2 3 4 5] rotate right by 2
+output =[4 5 1 2 3]
+def right_rotation(arr,k):
+    n=len(arr)
+if n==0:
+    return arr
+k = k%n
+return arr[-k:]+arr[:-k]
+arr=[1 2 3 4 5]
+k=2
+print(right_rotate(arr,k))
+-------------------------------
+right rotation using indexing
+new_index = (old_index + K)%n
+old_index = 4
+k=2
+n=5
+(4+2)%5=6%5=1
+index 4-->index 1
+5 1 2 3
+
+code:
+def right_rotation(arr, k):
+    n = len(arr)
+
+    if n == 0:
+        return arr
+
+    k = k % n
+
+    result = [0] * n
+
+    for old_index in range(n):
+        new_index = (old_index + k) % n
+        result[new_index] = arr[old_index]
+
+    return result
+
+
+arr = [1, 2, 3, 4, 5]
+k = 2
+
+result = right_rotation(arr, k)
+
+print(result)
+
+------------------------------------
+
+matrix traversals
+
+1--> row traversal
+
+matrix =[[1,2,3],[4,5,6],[7,8,9]]
+rows = len(matrix)
+columns =len(matrix)
+for i in range(rows):
+    for j i n range(cols):
+        print (matrix[i][j],end=" ")
+        o/p: [1 2 3 4 5 6  7 8 9]
+
+
+code:
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+for i in range(rows):
+    for j in range(cols):
+        print(matrix[i][j], end=" ")
+
+
+2--->/column wise traversal
+
+code:
+
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+for j in range(cols):
+    for i in range(rows):
+        print(matrix[i][j], end=" ")
+
+-------------------------
+
+reverse row traversal
+
+code:
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+for i in range(rows):
+    for j in range(cols - 1, -1, -1):
+        print(matrix[i][j], end=" ")
+
+----------------------------
+reverse col traversal
+
+code:
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+for j in range(cols):
+    for i in range(rows - 1, -1, -1):
+        print(matrix[i][j], end=" ")
+
+---------------------------
+row diagonal traversal
+1--->matrix primary diagonal
+rows==columns
+matrix=[[1 2 3],[4 5 6],[7 8 9]]
+n= len(matrix)
+for i in range(n):
+print(matrix[i][j],end=" ")
+
+code:
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+rows = len(matrix)
+columns = len(matrix[0])
+
+if rows == columns:
+    n = len(matrix)
+
+    for i in range(n):
+        print(matrix[i][i], end=" ")
+
+---------------------------
+2--->secondary diagonal traversal
+
+row+column = n-1  (formula)
+col = row-n-1
+
+code:
+matrix = [[1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9]]
+
+n = len(matrix)
+
+for row in range(n):
+    col = n - 1 - row
+    print(matrix[row][col], end=" ")
+-------------------------
+3--->boundary traversal
+ 
+[1 2  3  4
+ 5 6  7  8
+ 9 10 11 12]
+o/p: except 6,7 everything should print
+
+1.top row
+2.right column
+3.bottom row
+4.left column
+
+code:
+matrix = [[1, 2, 3, 4],
+          [5, 6, 7, 8],
+          [9, 10, 11, 12]]
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+# Top row
+for col in range(cols):
+    print(matrix[0][col], end=" ")
+
+# Right column
+for row in range(1, rows):
+    print(matrix[row][cols - 1], end=" ")
+
+# Bottom row
+for col in range(cols - 2, -1, -1):
+    print(matrix[rows - 1][col], end=" ")
+
+# Left column
+for row in range(rows - 2, 0, -1):
+    print(matrix[row][0], end=" ")
+
+code:
+matrix = [[1, 2, 3, 4],
+          [5, 6, 7, 8],
+          [9, 10, 11, 12]]
+
+rows = len(matrix)
+cols = len(matrix[0])
+
+# Top row
+for col in range(cols):
+    print(matrix[0][col], end=" ")
+
+# Right column
+for row in range(1, rows):
+    print(matrix[row][cols - 1], end=" ")
+
+# Bottom row
+for col in range(cols - 2, -1, -1):
+    print(matrix[rows - 1][col], end=" ")
+
+# Left column
+for row in range(rows - 2, 0, -1):
+    print(matrix[row][0], end=" ")
+
+----------------------------
+4-->spiral  boundary traversal
+take 4 boundary variables
+top = 0
+bottom =row-1
+left = 0
+right = col-1
+step-1: traverse left to right
+increase : top+=1
+step-2: traverse top to bottom
+decrease ; right-=1
+step-3: traverse right to left
+decrease :bottom- =1
+step-4:traverse bottom to top
+increase:left +=1
+repeat until :left>right or top>bottom
+
+code:
+def spiraltraversal(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+
+    top = 0
+    bottom = rows - 1
+    left = 0
+    right = cols - 1
+
+    result = []
+
+    while top <= bottom and left <= right:
+
+        # 1. Traverse from left to right
+        for col in range(left, right + 1):
+            result.append(matrix[top][col])
+
+        top += 1
+
+        # 2. Traverse from top to bottom
+        for row in range(top, bottom + 1):
+            result.append(matrix[row][right])
+
+        right -= 1
+
+        # 3. Traverse from right to left
+        if top <= bottom:
+            for col in range(right, left - 1, -1):
+                result.append(matrix[bottom][col])
+
+            bottom -= 1
+
+        # 4. Traverse from bottom to top
+        if left <= right:
+            for row in range(bottom, top - 1, -1):
+                result.append(matrix[row][left])
+
+            left += 1
+
+    return result
+
+
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+]
+
+print(spiraltraversal(matrix))
+
+----------------------------------------
+
+comparator thinking
+
+right=2
+comparator thinking
+sort()
+sorted()
+arr=[5 2 1 8]
+arr.sort()
+print(arr)
+moodifying original array
+
+'''
+#sorted
+arr=[5,2,1,8]
+result=sorted(arr)
+print(result)
+words=["apple","cat","banana","dog"]
+print(sorted(words))
+words=["apple","cat","banana","dog"]
+print(sorted(words,key=len))
+
+
+arr=[5,1,4,2]
+arr.sort(reverse=True)
+print(arr)
+
+
+

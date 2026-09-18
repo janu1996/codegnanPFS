@@ -1,0 +1,304 @@
+# Fibanoic series
+
+n = int(input("Enter the number of terms:"))
+a = 0
+b = 1
+for i in range(n):
+    print(a,end=" ")
+    c = a + b
+    a = b
+    b = c
+
+-------------------------------------------
+# prime number
+
+n=int(input("Enter a number:"))
+if n <=1:
+    print("It is not a prime number")
+else:
+    for i in range(2,n):
+        if n % i == 0:
+            print("It is not a prime number")
+            break
+    else:
+        print("It is a prime number")
+
+# perfect number sequence
+
+n=int(input("Enter a number:"))
+for num in range(2,n + 1):
+    for i in range(2,num):
+        if num % i == 0:
+            break
+    else:
+        print(num,end=" ") 
+---------------------------------
+# perfect number
+
+n = int(input("Enter a number: "))
+
+sum = 0
+
+for i in range(1, n):
+    if n % i == 0:
+        sum = sum + i
+
+if sum == n:
+    print("It is a perfect number")
+else:
+    print("It is not a perfect number")
+-------------------------------
+ # palindrome for numbers
+
+ n = int(input("Enter a number: "))
+
+original = n
+reverse = 0
+
+while n > 0:
+    digit = n % 10
+    reverse = reverse * 10 + digit
+    n = n // 10
+
+if original == reverse:
+    print("It is a palindrome number")
+else:
+    print("It is not a palindrome number")  
+------------------------------------
+# palindrome for string 
+
+s = input("Enter a string: ")
+
+reverse = ""
+
+for i in range(len(s) - 1, -1, -1):
+    reverse = reverse + s[i]
+
+if s == reverse:
+    print("It is a palindrome")
+else:
+    print("It is not a palindrome")
+
+# using slicing
+
+s = input("Enter a string: ")
+
+reverse = s[::-1]
+
+if s == reverse:
+    print("It is a palindrome")
+else:
+    print("It is not a palindrome")
+
+------------------------------------
+
+#Recuesion  (n to 1)
+
+def countdown(n):
+    if n == 0:
+        return
+    print(n)
+    countdown(n-1)
+countdown(7)
+
+------------------------
+#factorial
+
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+print(factorial(5))
+
+-------------------------------------
+18/8/26                     Tuesday
+-------                     --------
+
+# Rescusive for (1 to n)
+
+def print_numbers(n):
+    if n == 0:
+        return
+
+    print_numbers(n - 1)
+    print(n)
+
+n = int(input("Enter n: "))
+print_numbers(n)
+
+
+Dry Run
+
+When print_numbers(5) is called:
+
+Step 1
+
+print_numbers(5)
+→ n is not 0
+→ print_numbers(4)
+
+Step 2
+
+print_numbers(4)
+→ n is not 0
+→ print_numbers(3)
+
+Step 3
+
+print_numbers(3)
+→ n is not 0
+→ print_numbers(2)
+
+Step 4
+
+print_numbers(2)
+→ n is not 0
+→ print_numbers(1)
+
+Step 5
+
+print_numbers(1)
+→ n is not 0
+→ print_numbers(0)
+
+Step 6
+
+print_numbers(0)
+→ n == 0
+→ return
+
+Now the function starts returning back.
+
+Returning back
+print_numbers(1)
+→ print(1)  → 1
+
+
+print_numbers(2)
+→ print(2)  → 2
+
+
+print_numbers(3)
+→ print(3)  → 3
+
+
+print_numbers(4)
+→ print(4)  → 4
+
+
+print_numbers(5)
+→ print(5)  → 5
+Final Output
+1
+2
+3
+4
+5
+
+-------------------------
+types of recursion
+
+1. direct
+2. indirect --> not returning to the same function name.
+example of indirect:
+def even(n):
+    if n==0:
+        return True
+    return odd(n-1)
+def odd(n):
+    if n==0:
+        return False
+    return even(n - 1)
+print(even(5))
+print(odd(4))
+-----------------------------------
+# indirect recursive to  check weather it is even or odd
+
+def even(n):
+    if n==0:
+        return True
+    return odd(n-1)
+def odd(n):
+    if n==0:
+        return False
+    return even(n - 1)
+n=int(input("Enter a number:"))
+if even(n):
+    print("It is an even number")
+else:
+    print("It is an odd number")
+
+--------------------------------------
+
+3. Tail --> get the recursion call at the end
+
+ex: (n to 1)
+
+def reverse(n):
+    if n==0:
+        return
+    print(n)
+    reverse(n-1)
+n = int(input("Enter a number: "))
+reverse(n)
+-------------------------------------------
+
+4. head --> get the recursion before the code has end
+
+ex: (1 to n)
+
+def number(n):
+    if n==0:
+        return
+    number(n-1)
+    print(n)
+n = int(input("Enter a number: "))
+number(n)
+
+---------------------------------------------
+
+19/8/26                            Wednesday
+-------                            ---------
+
+# fibanoic series using recursion:
+
+
+def fib(n):
+    if n<=1:
+        return n
+    return fib(n-1)+fib(n-2)
+    
+n=int(input("Enter a number:"))
+
+for i in range(n):
+    print(fib(i),end= " ")
+
+----------------------------------------------
+
+# factorial using recursion:
+
+def factorial(n):
+    if n == 0:
+        return 1
+
+    return n * factorial(n - 1)
+
+
+n = int(input("Enter a number: "))
+
+print("Factorial:", factorial(n))
+
+--------------------------------------------
+# sum of digits
+
+def digitsum(n):
+    if n==0:
+        return 0
+    return ( n%10)+digitsum(n//10)
+n=int(input("Enter the digits:"))
+print("sum of digits:",digitsum(n))
+
+---------------------------------------------
+
+
